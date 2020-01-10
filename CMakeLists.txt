@@ -85,6 +85,7 @@ ENDIF()
 
 # Check for various functions.
 check_function_exists(fsync         HAVE_FSYNC)
+check_function_exists(fileno        HAVE_FILENO)
 check_function_exists(strlcat       HAVE_STRLCAT)
 check_function_exists(strerror      HAVE_STRERROR)
 check_function_exists(snprintf      HAVE_SNPRINTF)
