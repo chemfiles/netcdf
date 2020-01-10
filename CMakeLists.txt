@@ -164,6 +164,7 @@ SET(NETCDF_SOURCES
     libdispatch/nc.c libdispatch/ncbytes.c libdispatch/nchashmap.c
     libdispatch/nclist.c libdispatch/nclistmgr.c libdispatch/nclog.c
     libdispatch/nctime.c libdispatch/ncuri.c libdispatch/utf8proc.c
+    libdispatch/doffsets.c libdispatch/dinfermodel.c
     # headers
     include/fbits.h include/nc3dispatch.h include/nc_logging.h
     include/ncconfigure.h include/ncexternl.h include/nclist.h include/ncrc.h
