@@ -1,6 +1,5 @@
-diff -ru netcdf-c-4.7.3/config.h.cmake.in netcdf-c-4.7.3-chemfiles/config.h.cmake.in
 --- netcdf/config.h.cmake.in	2019-11-21 00:59:32.000000000 +0100
-+++ netcdf/config.h.cmake.in	2020-01-27 23:29:25.000000000 +0100
++++ netcdf/config.h.cmake.in	2020-01-28 00:26:09.000000000 +0100
 @@ -24,12 +24,6 @@
  
     */
@@ -14,17 +13,20 @@ diff -ru netcdf-c-4.7.3/config.h.cmake.in netcdf-c-4.7.3-chemfiles/config.h.cmak
     #if _MSC_VER>=1900
       #define STDC99
     #endif
-@@ -590,11 +584,11 @@
+@@ -588,15 +582,11 @@
+ /* Define to `unsigned long if <sys/types.h> does not define. */
+ #cmakedefine uintptr_t unsigned long
  
- /* Define strcasecmp, snprintf on Win32 systems. */
+-/* Define strcasecmp, snprintf on Win32 systems. */
++/* Define strcasecmp on Win32 systems. */
  #ifdef _WIN32
--    #ifndef HAVE_STRCASECMP
-+    #if !defined(HAVE_STRCASECMP) && !defined(strcasecmp)
+     #ifndef HAVE_STRCASECMP
  	 #define strcasecmp _stricmp
      #endif
- 
+-
 -    #ifndef HAVE_SNPRINTF
-+    #if !defined(HAVE_SNPRINTF) && !defined(snprintf)
- 	 #define snprintf _snprintf
-     #endif
+-	 #define snprintf _snprintf
+-    #endif
  #endif
+ 
+ #cmakedefine WORDS_BIGENDIAN
