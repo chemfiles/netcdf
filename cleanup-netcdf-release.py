@@ -16,6 +16,7 @@ if not os.path.exists(LOCALE_ARCHIVE):
 
 subprocess.run(["tar", "xf", LOCALE_ARCHIVE])
 subprocess.run(["mv", f"netcdf-c-{VERSION[1:]}", "netcdf"])
+subprocess.run("patch -p0 < config.h.cmake.in.patch", shell=True)
 
 KEEP_DIRECTORIES = [
     "include",
@@ -72,7 +73,7 @@ with open("CMakeLists.txt") as fd:
         output.write(fd.read())
 
 subprocess.run(["tar", "cf", "netcdf.tar", "netcdf"])
-subprocess.run(["gzip", "-9", "netcdf.tar"])
+subprocess.run(["gzip", "-f", "-9", "netcdf.tar"])
 subprocess.run(["rm", "-rf", "netcdf"])
 
 print("done !")

@@ -1,0 +1,30 @@
+diff -ru netcdf-c-4.7.3/config.h.cmake.in netcdf-c-4.7.3-chemfiles/config.h.cmake.in
+--- netcdf/config.h.cmake.in	2019-11-21 00:59:32.000000000 +0100
++++ netcdf/config.h.cmake.in	2020-01-27 23:29:25.000000000 +0100
+@@ -24,12 +24,6 @@
+ 
+    */
+ 
+-/* #cmakedefine HAVE_WINSOCK2_H
+-
+-#ifdef HAVE_WINSOCK2_H
+-   #define _WINSOCKAPI_
+-#endif
+-*/
+    #if _MSC_VER>=1900
+      #define STDC99
+    #endif
+@@ -590,11 +584,11 @@
+ 
+ /* Define strcasecmp, snprintf on Win32 systems. */
+ #ifdef _WIN32
+-    #ifndef HAVE_STRCASECMP
++    #if !defined(HAVE_STRCASECMP) && !defined(strcasecmp)
+ 	 #define strcasecmp _stricmp
+     #endif
+ 
+-    #ifndef HAVE_SNPRINTF
++    #if !defined(HAVE_SNPRINTF) && !defined(snprintf)
+ 	 #define snprintf _snprintf
+     #endif
+ #endif
